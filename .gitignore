@@ -1,1 +1,4 @@
 .venv/
+home/__pycache__
+home/migrations/__pycache__
+my_project/__pycache__
