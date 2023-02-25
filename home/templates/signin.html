@@ -4,28 +4,40 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SignUp</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h3>SignIn</h3>
-        
-        <form action="/signin/", method="post">
-        {% csrf_token %}
-            <label for="">Username</label>
-            <input type="text" id="username", name="username" placeholder="Enter your username">
-            <br>
-            <label for="">Password</label>
-            <input type="password" id="pass1", name="pass1" placeholder="Enter your password">
-            <br>
-            <button type="submit">Sign In</button>
-        </form>
- 
-        <script src="" async defer></script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>SignUp</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <h3>SignIn</h3>
+
+    <form action="/signin/" , method="post">
+      {% csrf_token %}
+      <label for="">Username</label>
+      <input
+        type="text"
+        id="username"
+        ,
+        name="username"
+        placeholder="Enter your username"
+      />
+      <br />
+      <label for="">Password</label>
+      <input
+        type="password"
+        id="pass1"
+        ,
+        name="pass1"
+        placeholder="Enter your password"
+      />
+      <br />
+      <button type="submit">Sign In</button>
+    </form>
+
+    <script src="" async defer></script>
+  </body>
 </html>
