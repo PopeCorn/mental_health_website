@@ -1,0 +1,131 @@
+/* Font */
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #121212;
+	color: #fff;
+}
+
+/* Header */
+.header {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* Content */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.content {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.content h2 {
+  margin-top: 0;
+}
+
+.content p {
+  font-size: 18px;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin: 0 10px;
+}
+
+.nav a {
+  color: #333333;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #333333;
+  border-radius: 10px;
+}
+
+/* Button Styles */
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Button Hover */
+.button:hover {
+  background-color: #3e8e41;
+  color: white;
+}
+
+/* Larger Font Size */
+.button-lg {
+  font-size: 24px;
+}
+
+/* Modern-Looking */
+.button-modern {
+  background-color: #3e8e41;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* Modern-Looking Hover */
+.button-modern:hover {
+  background-color: #0066CC;
+  color: white;
+}
+
+.button-logout {
+  background-color: #ea3a0e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+

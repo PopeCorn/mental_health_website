@@ -16,7 +16,13 @@
   </head>
   <body>
     <form method="post">
-      {% csrf_token %}
+      {% csrf_token %} {% if messages %}
+      <div class="message {% if messages.tags %}{{ messages.tags }}{% endif %}">
+        {% for message in messages %}
+        <div class="error-message">{{ message }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
       <label for="username">Username</label>
       <input type="text" id="username" name="username" required />
 

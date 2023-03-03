@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'homepage.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -14,10 +14,10 @@ def signup(request):
         pass1 = request.POST['pass1']
         pass2 = request.POST['pass2']
 
-        if User.objects.filter(username=username):
+        if User.objects.filter(username=username).exists():
             messages.error(request, 'Username already exists!')
         
-        elif User.objects.filter(email=email):
+        elif User.objects.filter(email=email).exists():
             messages.error(request, 'Email already registered!')
 
         elif pass1 != pass2:
@@ -27,8 +27,7 @@ def signup(request):
             new_user = User.objects.create_user(username, email, pass1)
             new_user.save()
             messages.success(request, 'Your account has been succesfully created')
-            
-        return redirect('http://127.0.0.1:8000/')
+            return redirect('http://127.0.0.1:8000/')
 
     return render(request, 'signup.html')
     
@@ -41,7 +40,7 @@ def signin(request):
 
         if user is not None:
             login(request, user)
-            return render(request, 'index.html', {'username': username})
+            return render(request, 'homepage.html', {'username': username})
         else:
             messages.error(request, 'That user does not exist')
             return redirect('http://127.0.0.1:8000/')
