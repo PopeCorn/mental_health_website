@@ -29,7 +29,7 @@ def signup(request):
             messages.success(request, 'Your account has been succesfully created')
             return redirect('http://127.0.0.1:8000/')
 
-    return render(request, 'signup.html')
+    return render(request, '/verification/signup.html')
     
 
 def signin(request):
@@ -45,8 +45,17 @@ def signin(request):
             messages.error(request, 'That user does not exist')
             return redirect('http://127.0.0.1:8000/')
         
-    return render(request, 'signin.html')
+    return render(request, 'verification/signin.html')
 
 def signout(request):
     logout(request)
     return redirect('http://127.0.0.1:8000/')
+
+def journal(request):
+    return render(request, 'mental_health/journal.html')
+
+def quotes(request):
+    return render(request, 'mental_health/quotes.html')
+
+def challenges(request):
+    return render(request, 'mental_health/challenges.html')
