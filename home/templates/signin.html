@@ -1,43 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SignUp</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <meta charset="UTF-8" />
+    <title>Log In</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'verification.css' %}"
+    />
   </head>
   <body>
-    <h3>SignIn</h3>
-
-    <form action="/signin/" , method="post">
+    <form method="post">
       {% csrf_token %}
-      <label for="">Username</label>
-      <input
-        type="text"
-        id="username"
-        ,
-        name="username"
-        placeholder="Enter your username"
-      />
-      <br />
-      <label for="">Password</label>
-      <input
-        type="password"
-        id="pass1"
-        ,
-        name="pass1"
-        placeholder="Enter your password"
-      />
-      <br />
-      <button type="submit">Sign In</button>
-    </form>
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" />
 
-    <script src="" async defer></script>
+      <label for="password">Password:</label>
+      <input type="password" name="pass1" id="pass1" />
+
+      <button type="submit">Log In</button>
+    </form>
   </body>
 </html>
