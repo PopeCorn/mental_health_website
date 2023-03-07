@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Homepage</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'homepage.css' %}" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Welcome to Our App</h1>
+    </div>
+
+    <div class="container">
+      {% if request.user.is_authenticated %}
+      <div class="content">
+        <h2>You are on the homepage</h2>
+        <p>You can go to quotes, challenges or journal from here.</p>
+      </div>
+
+      <ul class="nav">
+        <li><a href="/challenges/" class="button button-modern button-lg">Challenges</a></li>
+        <li><a href="/quotes/" class="button button-modern button-lg">Quotes</a></li>
+        <li><a href="/journal/" class="button button-modern button-lg">Journal</a></li>
+        <li><a href="/signout/" class="button button-logout button-lg">Logout</a></li>
+      </ul>
+
+      {% else %}
+
+      <ul class="nav">
+        <li><a href="/signin/" class="button button-modern button-lg">Sign In</a></li>
+        <li><a href="/signup/" class="button button-modern button-lg">Sign Up</a></li>
+      </ul>
+      
+
+      {% endif %}
+    </div>
+
+    <script src="" async defer></script>
+  </body>
+</html>
