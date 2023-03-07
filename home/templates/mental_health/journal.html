@@ -6,6 +6,13 @@
     <meta charset="UTF-8" />
     <title>Journal</title>
     <link rel="stylesheet" href="{% static 'homepage.css' %}" />
+    <style>
+      .centered-button {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -13,23 +20,16 @@
         {% csrf_token %}
         <label for="title">Title:</label>
         <input type="text" name="title" id="title" required />
-        <br/>
-        <textarea
-          name="my-text-field"
-          id="my-text-field"
-          cols="30"
-          rows="10"
-        ></textarea>
+        <br />
+        <textarea name="my-text-field" id="my-text-field" cols="45" rows="10"></textarea>
         <br />
         <button type="submit" class="button button-modern button-lg">Save</button>
-        <a href="{% url 'previous_journals' %}" class="button button-modern button-lg"
-          >View Previous journals</a
-        >
-          <a
-            href="http://127.0.0.1:8000/"
-            class="button button-modern button-lg"
-            >Back to Homepage</a
-          >
+        <a href="{% url 'previous_journals' %}" class="button button-modern button-lg">
+          View Previous journals
+        </a>
+        <a href="http://127.0.0.1:8000/" class="button button-logout button-lg centered-button">
+          Back to Homepage
+        </a>
       </form>
     </div>
   </body>
