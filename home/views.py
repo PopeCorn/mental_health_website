@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from .models import Journal
 
 def home(request):
     return render(request, 'homepage.html')
@@ -52,7 +53,15 @@ def signout(request):
     return redirect('http://127.0.0.1:8000/')
 
 def journal(request):
+    if request.method == 'POST':
+        my_text = request.POST['my-text-field']
+        Journal.objects.create(text=my_text)
+        return redirect('http://127.0.0.1:8000/')
     return render(request, 'mental_health/journal.html')
+
+def previous_journals(request):
+    texts = Journal.objects.order_by('-created_at')
+    return render(request, 'previous_journals.html', {'texts': texts})
 
 def quotes(request):
     return render(request, 'mental_health/quotes.html')

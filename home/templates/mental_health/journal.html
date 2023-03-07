@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Dark Text Field</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <label for="my-text-field">Today's journal:</label>
+            <textarea name="my-text-field" id="my-text-field" cols="30" rows="10"></textarea>
+            <br>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="{% url 'previous_journals' %}" class="btn btn-secondary">View Previous journals</a>
+        </form>
+    </div>
+</body>
+</html>

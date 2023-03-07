@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Texts</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Previous Texts</h1>
+        {% if texts %}
+            <ul class="previous-texts">
+                {% for text in texts %}
+                    <li>{{ text.text }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No previous texts.</p>
+        {% endif %}
+        <a href="{% url 'save_text' %}" class="btn btn-primary">Write a New Text</a>
+    </div>
+</body>
