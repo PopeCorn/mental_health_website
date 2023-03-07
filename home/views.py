@@ -54,14 +54,21 @@ def signout(request):
 
 def journal(request):
     if request.method == 'POST':
+        title = request.POST['title']
         my_text = request.POST['my-text-field']
-        Journal.objects.create(text=my_text)
+        Journal.objects.create(title=title, text=my_text)
         return redirect('http://127.0.0.1:8000/')
     return render(request, 'mental_health/journal.html')
 
 def previous_journals(request):
     texts = Journal.objects.order_by('-created_at')
-    return render(request, 'previous_journals.html', {'texts': texts})
+    return render(request, 'mental_health/previous_journals.html', {'texts': texts})
+
+def download_journal(request, pk):
+    journal = Journal.objects.get(pk=pk)
+    response = HttpResponse(journal.text, content_type='text/plain')
+    response['Content-Disposition'] = f'attachment; filename="{journal.title}.txt"'
+    return response
 
 def quotes(request):
     return render(request, 'mental_health/quotes.html')

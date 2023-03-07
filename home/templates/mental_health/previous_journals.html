@@ -2,23 +2,39 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Previous Texts</title>
-    <link rel="stylesheet" href="{% static 'homepage.css' %}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Previous Journals</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Previous Texts</h1>
-        {% if texts %}
-            <ul class="previous-texts">
-                {% for text in texts %}
-                    <li>{{ text.text }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No previous texts.</p>
-        {% endif %}
-        <a href="{% url 'save_text' %}" class="btn btn-primary">Write a New Text</a>
+      <h1>Previous Texts</h1>
+      {% if texts %}
+      <ul class="previous-texts">
+        {% for text in texts %}
+        <li>
+          <a href="{% url 'download_journal' pk=text.pk %}" download
+            >{{ text.title }}</a
+          >
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No previous texts.</p>
+      {% endif %}
+      <li>
+        <a
+          href="http://127.0.0.1:8000/journal"
+          class="button button-modern button-lg"
+          >Back to Journal</a
+        >
+      </li>
+      <li>
+        <a href="http://127.0.0.1:8000/" class="button button-modern button-lg"
+          >Back to Homepage</a
+        >
+      </li>
     </div>
-</body>
+  </body>
+</html>

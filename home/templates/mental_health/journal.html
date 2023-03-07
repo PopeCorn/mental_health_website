@@ -2,21 +2,35 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Dark Text Field</title>
-    <link rel="stylesheet" href="{% static 'homepage.css' %}">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Journal</title>
+    <link rel="stylesheet" href="{% static 'homepage.css' %}" />
+  </head>
+  <body>
     <div class="container">
-        <form method="POST">
-            {% csrf_token %}
-            <label for="my-text-field">Today's journal:</label>
-            <textarea name="my-text-field" id="my-text-field" cols="30" rows="10"></textarea>
-            <br>
-            <button type="submit" class="btn btn-primary">Save</button>
-            <a href="{% url 'previous_journals' %}" class="btn btn-secondary">View Previous journals</a>
-        </form>
+      <form method="POST">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" required />
+        <br/>
+        <textarea
+          name="my-text-field"
+          id="my-text-field"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <br />
+        <button type="submit" class="button button-modern button-lg">Save</button>
+        <a href="{% url 'previous_journals' %}" class="button button-modern button-lg"
+          >View Previous journals</a
+        >
+          <a
+            href="http://127.0.0.1:8000/"
+            class="button button-modern button-lg"
+            >Back to Homepage</a
+          >
+      </form>
     </div>
-</body>
+  </body>
 </html>
