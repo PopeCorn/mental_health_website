@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .models import Journal
 
 def home(request):
@@ -52,6 +53,7 @@ def signout(request):
     logout(request)
     return redirect('http://127.0.0.1:8000/')
 
+@login_required
 def journal(request):
     if request.method == 'POST':
         title = request.POST['title']
@@ -60,18 +62,22 @@ def journal(request):
         return redirect('http://127.0.0.1:8000/')
     return render(request, 'mental_health/journal.html')
 
+@login_required
 def previous_journals(request):
     texts = Journal.objects.order_by('-created_at')
     return render(request, 'mental_health/previous_journals.html', {'texts': texts})
 
+@login_required
 def download_journal(request, pk):
     journal = Journal.objects.get(pk=pk)
     response = HttpResponse(journal.text, content_type='text/plain')
     response['Content-Disposition'] = f'attachment; filename="{journal.title}.txt"'
     return response
 
+@login_required
 def quotes(request):
     return render(request, 'mental_health/quotes.html')
 
+@login_required
 def challenges(request):
     return render(request, 'mental_health/challenges.html')
