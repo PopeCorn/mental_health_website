@@ -58,13 +58,13 @@ def journal(request):
     if request.method == 'POST':
         title = request.POST['title']
         my_text = request.POST['my-text-field']
-        Journal.objects.create(title=title, text=my_text)
+        Journal.objects.create(title=title, text=my_text, created_by=request.user)
         return redirect('http://127.0.0.1:8000/')
     return render(request, 'mental_health/journal.html')
 
 @login_required
 def previous_journals(request):
-    texts = Journal.objects.order_by('-created_at')
+    texts = Journal.objects.filter(created_by=request.user).order_by('-created_at')
     return render(request, 'mental_health/previous_journals.html', {'texts': texts})
 
 @login_required
