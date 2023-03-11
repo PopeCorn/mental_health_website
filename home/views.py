@@ -28,10 +28,9 @@ def signup(request):
         else:
             new_user = User.objects.create_user(username, email, pass1)
             new_user.save()
-            messages.success(request, 'Your account has been succesfully created')
             return redirect('http://127.0.0.1:8000/')
 
-    return render(request, '/verification/signup.html')
+    return render(request, 'verification/signup.html')
     
 
 def signin(request):
@@ -58,7 +57,8 @@ def journal(request):
     if request.method == 'POST':
         title = request.POST['title']
         my_text = request.POST['my-text-field']
-        Journal.objects.create(title=title, text=my_text, created_by=request.user)
+        user = request.user
+        journal =Journal.objects.create(title=title, text=my_text, created_by=user)
         return redirect('http://127.0.0.1:8000/')
     return render(request, 'mental_health/journal.html')
 
