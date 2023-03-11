@@ -1,0 +1,5 @@
+> add a profile for the user
+- the user can customize his profile picture + change his name and e-mail adress
+- the profile picture with the name on top of it will always be displayed in the upper right corner
+- the user can click through the profile picture in the upper right corner to his profile
+- the user can change his name, e-mail adress and profile picture
